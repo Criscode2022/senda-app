@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STAFF
+  COORD
+}
+
+enum PreferredSlot {
+  MORNING
+  AFTERNOON
+  ANY
+}
+
+enum VisitType {
+  COMPANY
+  ERRAND
+  WALK
+  OTHER
+}
+
+enum VisitStatus {
+  NEW
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  passwordHash String
+  name         String
+  role         Role           @default(STAFF)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  visits       VisitRequest[]
+}
+
+model VisitRequest {
+  id              String        @id @default(cuid())
+  beneficiaryName String
+  beneficiaryAge  Int?
+  address         String
+  city            String
+  contactName     String
+  contactPhone    String
+  contactEmail    String?
+  preferredDate   DateTime?
+  preferredSlot   PreferredSlot @default(ANY)
+  visitType       VisitType     @default(COMPANY)
+  notes           String?
+  status          VisitStatus   @default(NEW)
+  assignedToId    String?
+  assignedTo      User?         @relation(fields: [assignedToId], references: [id])
+  staffNotes      String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
