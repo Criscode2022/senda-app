@@ -9,7 +9,12 @@ import { RouterLink } from '@angular/router';
     <div class="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6">
       <p class="text-[11px] font-semibold tracking-[0.18em] text-white/80">ACOMPAÑAMIENTO A DOMICILIO</p>
       <h1 class="mt-3 max-w-3xl font-display text-4xl font-semibold leading-[1.08] text-white md:text-6xl">Cuidado que llega a casa, con ruta y con calma.</h1>
-      <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">Solicita visitas de acompañamiento para personas mayores. Coordinación confirma y el equipo llega con una agenda clara.</p>
+      <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">Solicita visitas de acompañamiento para personas mayores. Coordinación confirma y el equipo llega con una agenda clara: paseo, recados o compañía en casa.</p>
+      <div class="mt-6 grid max-w-2xl gap-3 text-sm text-white/85 sm:grid-cols-3">
+        <p><span class="font-semibold text-white">Mañana · 10:00</span><br />Paseo con Pilar en Usera.</p>
+        <p><span class="font-semibold text-white">Tarde · 17:30</span><br />Recados y farmacia, Vallecas.</p>
+        <p><span class="font-semibold text-white">Sábado · 12:00</span><br />Compañía en casa, Carabanchel.</p>
+      </div>
       <div class="mt-8 flex flex-wrap gap-3">
         <a routerLink="/solicitar" class="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink hover:bg-primary-soft">Solicitar visita</a>
         <a href="#como" class="rounded-full border border-white/40 px-6 py-3.5 text-sm font-semibold text-white">Cómo funciona</a>
